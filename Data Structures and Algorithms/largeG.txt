@@ -1,0 +1,270 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="en">
+
+<head>
+
+<link rel="icon"          href="http://algs4.cs.princeton.edu/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="http://algs4.cs.princeton.edu/favicon.ico" type="image/x-icon">
+<link rel="stylesheet"    href="http://algs4.cs.princeton.edu/algs4.css"   type="text/css" media="screen">
+<meta name="google-site-verification" content="nYspbl5bNBQrNZKguiAAFTMVM7sq2P1WQYc8Oi6Okl0" />
+<meta name="msvalidate.01" content="D4B7F6DF793EFF34DE96F611C2A367A5" />
+
+<!-- IE HACKS -->
+<!--[if IE]>
+<style type="text/css" media="screen">
+ #menu ul li {float: left; width: 100%;}
+</style>
+<![endif]-->
+<!--[if lt IE 7]>
+<style type="text/css" media="screen">
+body {
+behavior: url(/csshover.htc);
+} 
+#menu ul li {float: left; width: 100%;}
+#menu ul li a {height: 1%;} 
+
+#menu a, #menu h2 {
+font: bold 0.9em/1.5em arial, helvetica, sans-serif;
+} 
+
+</style>
+<![endif]-->
+
+
+
+<title>
+404 Error</title>
+
+<META HTTP-EQUIV="Content-Type" content="text/html; charset=iso-8859-1">
+<META NAME="AUTHOR" CONTENT="Robert Sedgewick and Kevin Wayne">
+<META NAME="KEYWORDS" CONTENT="404 Error,Algorithms,4th edition,data structures,Java,intro,introduction,Sedgewick,Wayne">
+<META NAME="DESCRIPTION" CONTENT="The textbook Algorithms, 4th Edition by Robert Sedgewick and Kevin Wayne surveys the most important algorithms and data structures in use today. The broad perspective taken makes it an appropriate introduction to the field.">
+<META NAME="TITLE" CONTENT="404 Error. Algorithms, 4th Edition by Robert Sedgewick and Kevin Wayne.">
+<META NAME="ROBOTS" CONTENT="INDEX,FOLLOW">
+
+<script type='text/javascript' src='/media/swfobject.js'></script>
+</head>
+
+
+<body>
+
+<div id = "menu">
+<div align="center">
+<a class = picture href = "http://algs4.cs.princeton.edu">
+<img src="http://algs4.cs.princeton.edu/cover.png" width=189 height=236 border=0 alt = "Algorithms, 4th Edition by Robert Sedgewick and Kevin Wayne">
+</a>  
+</div>
+
+
+
+
+
+<ul>
+  <li><a class = title href = "http://algs4.cs.princeton.edu">Algorithms, 4th edition</a>
+
+<ul>
+
+
+      <li> <a href = "/10fundamentals">1.&nbsp;&nbsp;Fundamentals</a>
+        <ul>
+          <li> <a href = "/11model">1.1&nbsp;&nbsp;Programming Model</a>
+          <li> <a href = "/12oop">1.2&nbsp;&nbsp;Data Abstraction</a>
+          <li> <a href = "/13stacks">1.3&nbsp;&nbsp;Stacks and Queues</a>
+          <li> <a href = "/14analysis">1.4&nbsp;&nbsp;Analysis of Algorithms</a>
+          <li> <a href = "/15uf">1.5&nbsp;&nbsp;Case Study: Union-Find</a>
+        </ul>
+
+      <li> <a href = "/20sorting">2.&nbsp;&nbsp;Sorting</a>
+        <ul>
+          <li> <a href = "/21elementary">2.1&nbsp;&nbsp;Elementary Sorts</a>
+          <li> <a href = "/22mergesort">2.2&nbsp;&nbsp;Mergesort</a>
+          <li> <a href = "/23quicksort">2.3&nbsp;&nbsp;Quicksort</a>
+          <li> <a href = "/24pq">2.4&nbsp;&nbsp;Priority Queues</a>
+          <li> <a href = "/25applications">2.5&nbsp;&nbsp;Sorting Applications</a>
+        </ul>
+
+      <li> <a href = "/30searching">3.&nbsp;&nbsp;Searching</a>
+        <ul>
+          <li> <a href = "/31elementary">3.1&nbsp;&nbsp;Symbol Tables</a>
+          <li> <a href = "/32bst">3.2&nbsp;&nbsp;Binary Search Trees</a>
+          <li> <a href = "/33balanced">3.3&nbsp;&nbsp;Balanced Search Trees</a>
+          <li> <a href = "/34hash">3.4&nbsp;&nbsp;Hash Tables</a>
+          <li> <a href = "/35applications">3.5&nbsp;&nbsp;Searching Applications</a>
+        </ul>
+
+      <li> <a href = "/40graphs">4.&nbsp;&nbsp;Graphs</a>
+        <ul>
+          <li> <a href = "/41undirected">4.1&nbsp;&nbsp;Undirected Graphs</a>
+          <li> <a href = "/42directed">4.2&nbsp;&nbsp;Directed Graphs</a>
+          <li> <a href = "/43mst">4.3&nbsp;&nbsp;Minimum Spanning Trees</a>
+          <li> <a href = "/44sp">4.4&nbsp;&nbsp;Shortest Paths</a>
+        </ul>
+
+      <li> <a href = "/50strings">5.&nbsp;&nbsp;Strings</a>
+        <ul>
+          <li> <a href = "/51radix">5.1&nbsp;&nbsp;String Sorts</a>
+          <li> <a href = "/52trie">5.2&nbsp;&nbsp;Tries</a>
+          <li> <a href = "/53substring">5.3&nbsp;&nbsp;Substring Search</a>
+          <li> <a href = "/54regexp">5.4&nbsp;&nbsp;Regular Expressions</a>
+          <li> <a href = "/55compression">5.5&nbsp;&nbsp;Data Compression</a>
+        </ul>
+
+      <li> <a href = "/60context">6.&nbsp;&nbsp;Context</a>
+        <ul>
+          <li> <a href = "/61event">6.1&nbsp;&nbsp;Event-Driven Simulation</a>
+          <li> <a href = "/62btrees">6.2&nbsp;&nbsp;B-trees</a>
+          <li> <a href = "/63suffix">6.3&nbsp;&nbsp;Suffix Arrays</a>
+          <li> <a href = "/64maxflow">6.4&nbsp;&nbsp;Maxflow</a>
+          <li> <a href = "/65reductions">6.5&nbsp;&nbsp;Reductions</a>
+          <li> <a href = "/66intractability">6.6&nbsp;&nbsp;Intractability</a>
+        </ul>
+    </ul>
+
+
+
+
+ <li><a class = title href = "http://introcs.cs.princeton.edu/java/home">Intro to Programming</a>
+ <ul> <a class = book href = "http://introcs.cs.princeton.edu/java/home">
+      <img src="http://introcs.cs.princeton.edu/java/cover.jpg" width=50% border=0 alt = "Introduction to Programming in Java: An Interdisciplinary Approach  by Robert Sedgewick and Kevin Wayne"></a>
+ </ul>
+
+
+ <li><a class = title href = "http://algs4.cs.princeton.edu">Web Resources</a>
+    <ul>
+
+      <li> <a href = "/faq">FAQ</a>
+<!--     <li> <a href = "http://introcs.cs.princeton.edu/data">Data</a> -->
+      <li> <a href = "/code">Code</a>
+      <li> <a href = "/errata">Errata</a>
+      <li> <a href = "/references">References</a>
+      <li> <a href = "/lectures">Lecture Slides</a>
+      <li> <a href = "http://introcs.cs.princeton.edu/java/assignments">Programming Assignments</a>
+      <li>
+   </ul>
+
+</ul>
+
+<p><br>
+<FORM NAME="search" METHOD=GET ACTION="http://search.cs.princeton.edu/">
+&nbsp;&nbsp;
+<INPUT NAME=q TYPE="text" VALUE="Search booksite..."
+class = search
+style="color:#000000; background:#DDDDDD" 
+SIZE = 18 MAXLENGTH = 80
+onFocus="this.form.q.value='';" 
+onBlur="this.form.q.value='Search booksite...';"
+>&nbsp;&nbsp;
+<INPUT TYPE=HIDDEN NAME=restrict VALUE="Algs4">
+</form>
+<p><br>
+
+
+
+
+</div>
+
+
+<div id = "content">
+<H1>404 Error:&nbsp;Not Found</H1><p><br><br><b>http://algs4.cs.princeton.edu/41undirected/largeG.txt</b>
+
+
+<p><br><br>
+
+<hr>
+
+<ADDRESS>Apache/2.2.17 server at algs4.cs.princeton.edu</ADDRESS></BODY></HTML>
+
+
+
+<!--
+<hr>
+<center><a href=#GLOBALS>GLOBALS</a> | <a href=#_SERVER>_SERVER</a> | <a href=#_GET>_GET</a> | <a href=#_POST>_POST</a> | <a href=#_FILES>_FILES</a> | <a href=#_COOKIE>_COOKIE</a> | <a href=#_SESSION>_SESSION</a> | <a href=#_REQUEST>_REQUEST</a> | <a href=#_ENV>_ENV</a></center>
+<hr>
+<b><a name=GLOBALS>GLOBALS</a>:</b>
+<li> $GLOBALS[GLOBALS] = <a href=#GLOBALS>Array</a>
+<li> $GLOBALS[_ENV] = <a href=#_ENV>Array</a>
+<li> $GLOBALS[HTTP_ENV_VARS] = Array<li> $GLOBALS[_POST] = <a href=#_POST>Array</a>
+<li> $GLOBALS[HTTP_POST_VARS] = Array<li> $GLOBALS[_GET] = <a href=#_GET>Array</a>
+<li> $GLOBALS[HTTP_GET_VARS] = Array<li> $GLOBALS[_COOKIE] = <a href=#_COOKIE>Array</a>
+<li> $GLOBALS[HTTP_COOKIE_VARS] = Array<li> $GLOBALS[_SERVER] = <a href=#_SERVER>Array</a>
+<li> $GLOBALS[HTTP_SERVER_VARS] = Array<li> $GLOBALS[_FILES] = <a href=#_FILES>Array</a>
+<li> $GLOBALS[HTTP_POST_FILES] = Array<li> $GLOBALS[_REQUEST] = <a href=#_REQUEST>Array</a>
+<li> $GLOBALS[title] = Array<li> $GLOBALS[section] = <li> $GLOBALS[number] = Array<li> $GLOBALS[url] = Array<li> $GLOBALS[count] = 36<li> $GLOBALS[i] = 36<li> $GLOBALS[REDIRECTSTATUS] = 404<li> $GLOBALS[superglobals] = Array<li> $GLOBALS[env] = GLOBALS<li> $GLOBALS[nav] = Array<li> $GLOBALS[nav_list] = <a href=#GLOBALS>GLOBALS</a> | <a href=#_SERVER>_SERVER</a> | <a href=#_GET>_GET</a> | <a href=#_POST>_POST</a> | <a href=#_FILES>_FILES</a> | <a href=#_COOKIE>_COOKIE</a> | <a href=#_SESSION>_SESSION</a> | <a href=#_REQUEST>_REQUEST</a> | <a href=#_ENV>_ENV</a><li> $GLOBALS[val] = <a href=#GLOBALS>GLOBALS</a> | <a href=#_SERVER>_SERVER</a> | <a href=#_GET>_GET</a> | <a href=#_POST>_POST</a> | <a href=#_FILES>_FILES</a> | <a href=#_COOKIE>_COOKIE</a> | <a href=#_SESSION>_SESSION</a> | <a href=#_REQUEST>_REQUEST</a> | <a href=#_ENV>_ENV</a><li> $GLOBALS[key] = val<hr>
+<b><a name=_SERVER>_SERVER</a>:</b>
+<li> $_SERVER[REDIRECT_UNIQUE_ID] = Tq@Jv4BwiF4AAG0u5B8AAABN<li> $_SERVER[REDIRECT_REQUEST_METHOD] = GET<li> $_SERVER[REDIRECT_STATUS] = 404<li> $_SERVER[UNIQUE_ID] = Tq@Jv4BwiF4AAG0u5B8AAABN<li> $_SERVER[HTTP_HOST] = algs4.cs.princeton.edu<li> $_SERVER[HTTP_USER_AGENT] = Mozilla/5.0 (X11; Linux i686; rv:7.0.1) Gecko/20100101 Firefox/7.0.1<li> $_SERVER[HTTP_ACCEPT] = text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8<li> $_SERVER[HTTP_ACCEPT_LANGUAGE] = en-us,en;q=0.5<li> $_SERVER[HTTP_ACCEPT_ENCODING] = gzip, deflate<li> $_SERVER[HTTP_ACCEPT_CHARSET] = ISO-8859-1,utf-8;q=0.7,*;q=0.7<li> $_SERVER[HTTP_DNT] = 1<li> $_SERVER[HTTP_CONNECTION] = keep-alive<li> $_SERVER[HTTP_REFERER] = http://algs4.cs.princeton.edu/41undirected/<li> $_SERVER[HTTP_PRAGMA] = no-cache<li> $_SERVER[HTTP_CACHE_CONTROL] = no-cache<li> $_SERVER[PATH] = /usr/local/bin:/usr/local/gnu/bin:/var/local/bin:/usr/sbin:/sbin:/bin:/usr/bin:/usr/local/bin:/usr/X11R6/bin:/etc<li> $_SERVER[SERVER_SIGNATURE] = <li> $_SERVER[SERVER_SOFTWARE] = Apache/2.2.17<li> $_SERVER[SERVER_NAME] = algs4.cs.princeton.edu<li> $_SERVER[SERVER_ADDR] = 128.112.136.36<li> $_SERVER[SERVER_PORT] = 80<li> $_SERVER[REMOTE_ADDR] = 117.254.121.118<li> $_SERVER[DOCUMENT_ROOT] = /n/fs/algs4/www<li> $_SERVER[SERVER_ADMIN] = rs@CS.Princeton.EDU<li> $_SERVER[SCRIPT_FILENAME] = /n/fs/algs4/www/error/index.php<li> $_SERVER[REMOTE_PORT] = 44145<li> $_SERVER[REDIRECT_URL] = /41undirected/largeG.txt<li> $_SERVER[GATEWAY_INTERFACE] = CGI/1.1<li> $_SERVER[SERVER_PROTOCOL] = HTTP/1.1<li> $_SERVER[REQUEST_METHOD] = GET<li> $_SERVER[QUERY_STRING] = <li> $_SERVER[REQUEST_URI] = /41undirected/largeG.txt<li> $_SERVER[SCRIPT_NAME] = /error/index.php<li> $_SERVER[PHP_SELF] = /error/index.php<li> $_SERVER[REQUEST_TIME] = 1320126911<hr>
+<b><a name=_GET>_GET</a>:</b>
+<hr>
+<b><a name=_POST>_POST</a>:</b>
+<hr>
+<b><a name=_FILES>_FILES</a>:</b>
+<hr>
+<b><a name=_COOKIE>_COOKIE</a>:</b>
+<hr>
+<b><a name=_SESSION>_SESSION</a>:</b>
+<br />
+<b>Warning</b>:  Variable passed to each() is not an array or object in <b>/n/fs/algs4/www/error/index.html</b> on line <b>63</b><br />
+<hr>
+<b><a name=_REQUEST>_REQUEST</a>:</b>
+<hr>
+<b><a name=_ENV>_ENV</a>:</b>
+<li> $_ENV[REMOTEHOST] = packrat.cs.princeton.edu<li> $_ENV[MANPATH] = /opt/hpnp/man:/usr/share/man:/usr/man:/usr/openwin/man<li> $_ENV[HOSTNAME] = bobbin.CS.Princeton.EDU<li> $_ENV[HOST] = bobbin.CS.Princeton.EDU<li> $_ENV[SHELL] = /usr/local/bin/tcsh<li> $_ENV[TERM] = xterm<li> $_ENV[GROUP] = root<li> $_ENV[USER] = elgersma<li> $_ENV[LD_LIBRARY_PATH] = /var/local/httpd/lib:/var/local/lib:/usr/local/lib:/usr/local/X11/lib:/usr/local/lib/mysql:/var/local/openssl/lib:/usr/openwin/lib<li> $_ENV[LS_COLORS] = no=00:fi=00:di=00;34:ln=00;36:pi=40;33:so=00;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:ex=00;32:*.cmd=00;32:*.exe=00;32:*.com=00;32:*.btm=00;32:*.bat=00;32:*.sh=00;32:*.csh=00;32:*.tar=00;31:*.tgz=00;31:*.arj=00;31:*.taz=00;31:*.lzh=00;31:*.zip=00;31:*.z=00;31:*.Z=00;31:*.gz=00;31:*.bz2=00;31:*.bz=00;31:*.tz=00;31:*.rpm=00;31:*.cpio=00;31:*.jpg=00;35:*.gif=00;35:*.bmp=00;35:*.xbm=00;35:*.xpm=00;35:*.png=00;35:*.tif=00;35:<li> $_ENV[HOSTTYPE] = x86_64-linux<li> $_ENV[INVUSER] = elgersma<li> $_ENV[MAIL] = /var/spool/mail/elgersma<li> $_ENV[PATH] = /usr/local/bin:/usr/local/gnu/bin:/var/local/bin:/usr/sbin:/sbin:/bin:/usr/bin:/usr/local/bin:/usr/X11R6/bin:/etc<li> $_ENV[INPUTRC] = /etc/inputrc<li> $_ENV[PWD] = /var/local/httpd/conf/virtual<li> $_ENV[EDITOR] = vi<li> $_ENV[LANG] = en_US.UTF-8<li> $_ENV[LM_LICENSE_FILE] = /usr/local/etc/sunpro.lic,sp<li> $_ENV[SHLVL] = 3<li> $_ENV[HOME] = /root<li> $_ENV[OSTYPE] = linux<li> $_ENV[VENDOR] = unknown<li> $_ENV[LESS] = -x4<li> $_ENV[MACHTYPE] = x86_64<li> $_ENV[LOGNAME] = elgersma<li> $_ENV[CVS_RSH] = ssh<li> $_ENV[LESSOPEN] = |/usr/bin/lesspipe.sh %s<li> $_ENV[DISPLAY] = bobbin.CS.Princeton.EDU:10.0<li> $_ENV[G_BROKEN_FILENAMES] = 1<li> $_ENV[XAUTHORITY] = /root/.xauthARDFBv<li> $_ENV[_] = /var/local/httpd/bin/httpd-->
+
+
+
+
+<br><br>
+<p class = footer>
+Copyright &copy; 2002&ndash;2011
+<a href = "http://www.cs.princeton.edu/~rs" class = footer>Robert Sedgewick</a>
+and
+<a href = "http://www.cs.princeton.edu/~wayne" class = footer>Kevin Wayne</a>.
+All rights reserved.
+</div>
+
+
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-10811519-2");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+</html>
+
+ 
+
+
+
+
+<!--
+<hr>
+<center><a href=#GLOBALS>GLOBALS</a> | <a href=#_SERVER>_SERVER</a> | <a href=#_GET>_GET</a> | <a href=#_POST>_POST</a> | <a href=#_FILES>_FILES</a> | <a href=#_COOKIE>_COOKIE</a> | <a href=#_SESSION>_SESSION</a> | <a href=#_REQUEST>_REQUEST</a> | <a href=#_ENV>_ENV</a> | <a href=#GLOBALS>GLOBALS</a> | <a href=#_SERVER>_SERVER</a> | <a href=#_GET>_GET</a> | <a href=#_POST>_POST</a> | <a href=#_FILES>_FILES</a> | <a href=#_COOKIE>_COOKIE</a> | <a href=#_SESSION>_SESSION</a> | <a href=#_REQUEST>_REQUEST</a> | <a href=#_ENV>_ENV</a></center>
+<hr>
+<b><a name=GLOBALS>GLOBALS</a>:</b>
+<li> $GLOBALS[_SESSION] = <li> $GLOBALS[date] = 11/01/11 01:55<li> $GLOBALS[REMOTEADDR] = 117.254.121.118<li> $GLOBALS[REMOTEHOST] = 117.254.121.118<li> $GLOBALS[HTTPREFERER] = http://algs4.cs.princeton.edu/41undirected/<li> $GLOBALS[REQUESTURI] = /41undirected/largeG.txt<li> $GLOBALS[fp] = Resource id #6<hr>
+<b><a name=_SERVER>_SERVER</a>:</b>
+<hr>
+<b><a name=_GET>_GET</a>:</b>
+<hr>
+<b><a name=_POST>_POST</a>:</b>
+<hr>
+<b><a name=_FILES>_FILES</a>:</b>
+<hr>
+<b><a name=_COOKIE>_COOKIE</a>:</b>
+<hr>
+<b><a name=_SESSION>_SESSION</a>:</b>
+<br />
+<b>Warning</b>:  Variable passed to each() is not an array or object in <b>/n/fs/algs4/www/template.inc</b> on line <b>134</b><br />
+<hr>
+<b><a name=_REQUEST>_REQUEST</a>:</b>
+<hr>
+<b><a name=_ENV>_ENV</a>:</b>
+-->
