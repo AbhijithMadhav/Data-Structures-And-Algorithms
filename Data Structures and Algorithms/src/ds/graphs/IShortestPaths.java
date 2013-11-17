@@ -1,0 +1,8 @@
+package ds.graphs;
+
+public interface IShortestPaths
+{
+	double distTo(int v);
+	boolean hasPathTo(int v);
+	Iterable<DirectedEdge> pathTo(int v);
+}

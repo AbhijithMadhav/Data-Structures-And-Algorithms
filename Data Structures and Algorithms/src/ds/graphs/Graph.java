@@ -267,14 +267,4 @@ class ParallelEdgeExistsException extends Exception
 	}
 }
 
-/**
- * Exception indicating a non-existent vertex
- */
-@SuppressWarnings("serial")
-class NonExistentVertexException extends Exception
-{
-	NonExistentVertexException(String s)
-	{
-		super(s);
-	}
-}
+

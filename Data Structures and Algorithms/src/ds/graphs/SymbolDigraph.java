@@ -8,7 +8,7 @@ import ds.st.SeparateChainingHashST;
 
 /**
  * A graph implementation using the adjacency list representation where
- * vertices with strings can also be represented
+ * vertices with any type can also be represented
  * 
  * 
  */

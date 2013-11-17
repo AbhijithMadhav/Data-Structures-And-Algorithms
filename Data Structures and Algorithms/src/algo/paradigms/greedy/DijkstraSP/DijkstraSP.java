@@ -2,7 +2,7 @@ package algo.paradigms.greedy.DijkstraSP;
 
 import ds.graphs.DirectedEdge;
 import ds.graphs.EdgeWeightedDigraph;
-import ds.graphs.ShortestPaths;
+import ds.graphs.IShortestPaths;
 import edu.princeton.cs.introcs.In;
 
 import java.util.LinkedList;
@@ -13,7 +13,7 @@ import java.util.PriorityQueue;
 // The SPT contains all vertices of G and is hence represented in two vertex indexed data structures, distFromSource[] and edgeFromSPT[]
 // That a vertex is a part of the SPT is indicated by its distance to the source not being infinity
 
-public class DijkstraSP implements ShortestPaths
+public class DijkstraSP implements IShortestPaths
 {
 	private SPVertex vertex[];
 	private PriorityQueue<SPVertex> pq; // Shortest distances of vertices adjacent
