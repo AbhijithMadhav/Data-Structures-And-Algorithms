@@ -1,9 +1,8 @@
-package algo.graphs;
+package ds.uf;
 
 import algo.graphs.dfs.undirected.DFS;
 import ds.graphs.Graph;
 import ds.graphs.ISearch;
-import ds.uf.UnionFindWQU;
 import edu.princeton.cs.introcs.In;
 /**
  * Implements {@code Search} using Weighted quick union
