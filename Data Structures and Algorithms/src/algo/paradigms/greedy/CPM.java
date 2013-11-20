@@ -1,6 +1,6 @@
-package algo.graphs;
+package algo.paradigms.greedy;
 
-import ds.graphs.DirectedEdge;
+import ds.graphs.WeightedDirectedEdge;
 import ds.graphs.EdgeWeightedDigraph;
 import edu.princeton.cs.introcs.StdIn;
 
@@ -20,14 +20,14 @@ public class CPM
 		for (int i = 0; i < N; i++)
 		{
 			String[] a = StdIn.readLine().split("\\s+");
-			G.addEdge(new DirectedEdge(i, i + N, Double.parseDouble(a[0]))); // Job
+			G.addEdge(new WeightedDirectedEdge(i, i + N, Double.parseDouble(a[0]))); // Job
 																				// edge
-			G.addEdge(new DirectedEdge(s, i, 0.0)); // Edge from start vertex
-			G.addEdge(new DirectedEdge(i + N, t, 0.0)); // Edge to end vertex
+			G.addEdge(new WeightedDirectedEdge(s, i, 0.0)); // Edge from start vertex
+			G.addEdge(new WeightedDirectedEdge(i + N, t, 0.0)); // Edge to end vertex
 
 			// Precedence constraints
 			for (int j = 1; j < a.length; j++)
-				G.addEdge(new DirectedEdge(i + N, Integer.parseInt(a[j]), 0.0));
+				G.addEdge(new WeightedDirectedEdge(i + N, Integer.parseInt(a[j]), 0.0));
 		}
 
 		AcyclicLP lp = new AcyclicLP(G, s);

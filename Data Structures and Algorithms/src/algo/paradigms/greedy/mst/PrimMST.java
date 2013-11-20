@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.PriorityQueue;
 
 import edu.princeton.cs.introcs.In;
-import ds.graphs.Edge;
+import ds.graphs.WeightedEdge;
 import ds.graphs.EdgeWeightedGraph;
 
 /**
@@ -22,7 +22,7 @@ public class PrimMST
 	private PriorityQueue<Vertex> pq;
 
 	private double weight; // weight of the MST
-	private Collection<Edge> mst; // Iterator containing the edges of the MST
+	private Collection<WeightedEdge> mst; // Iterator containing the edges of the MST
 
 	public PrimMST(EdgeWeightedGraph G)
 	{
@@ -57,7 +57,7 @@ public class PrimMST
 		}
 
 		// Prepare the MST iterator and calculate the weight
-		mst = new LinkedList<Edge>();
+		mst = new LinkedList<WeightedEdge>();
 		for (int v = 1; v < G.V(); v++)
 		{
 			mst.add(vertex[v].edgeToMST);
@@ -71,7 +71,7 @@ public class PrimMST
 	private void update(EdgeWeightedGraph G, Vertex v)
 	{
 		// for all adjacent vertices
-		for (Edge e : G.adj(v.name))
+		for (WeightedEdge e : G.adj(v.name))
 		{
 			// adjacent vertex
 			Vertex w = vertex[e.other(v.name)];
@@ -97,7 +97,7 @@ public class PrimMST
 		}
 	}
 
-	public Iterable<Edge> edges()
+	public Iterable<WeightedEdge> edges()
 	{
 		return mst;
 	}
@@ -115,7 +115,7 @@ public class PrimMST
 		PrimMST mst = new PrimMST(new EdgeWeightedGraph(new In(args[0])));
 
 		System.out.println("Minimum spanning tree of " + args[0]);
-		for (Edge e : mst.edges())
+		for (WeightedEdge e : mst.edges())
 			System.out.println(e);
 		System.out.println("Weight : " + mst.weight());
 
@@ -126,7 +126,7 @@ class Vertex implements Comparable<Vertex>
 {
 	int name;
 	double distToMST;// Minimal cost from a vertex to the MST
-	Edge edgeToMST; // The minimal costing edge connecting
+	WeightedEdge edgeToMST; // The minimal costing edge connecting
 	// the vertex to the MS
 	// why do I need this?
 	boolean inMST; // is the vertex on the MST?

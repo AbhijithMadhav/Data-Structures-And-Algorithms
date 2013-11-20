@@ -1,7 +1,7 @@
-package algo.graphs.dfs;
+package algo.graphs.dfs.directed;
 
-import ds.graphs.ICycle;
 import ds.graphs.Digraph;
+import ds.graphs.ICycle;
 import edu.princeton.cs.introcs.In;
 
 import java.util.Stack;
@@ -9,7 +9,7 @@ import java.util.Stack;
 /**
  * Implements {@code Cycle} using DFS
  */
-public class DirectedCycleDFS implements ICycle
+public class DirectedCycle implements ICycle
 {
 
 	private boolean marked[];
@@ -17,7 +17,7 @@ public class DirectedCycleDFS implements ICycle
 	private Stack<Integer> cycle;
 	private int edgeTo[];
 
-	public DirectedCycleDFS(Digraph G)
+	public DirectedCycle(Digraph G)
 	{
 		marked = new boolean[G.V()];
 		onStack = new boolean[G.V()];
@@ -54,12 +54,6 @@ public class DirectedCycleDFS implements ICycle
 		onStack[v] = false;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see Cycle#hasCycle()
-	 */
-	@Override
 	public boolean hasCycle()
 	{
 		return cycle != null;
@@ -87,7 +81,7 @@ public class DirectedCycleDFS implements ICycle
 			System.exit(1);
 		}
 
-		DirectedCycleDFS cycleFinder = new DirectedCycleDFS(G);
+		DirectedCycle cycleFinder = new DirectedCycle(G);
 		if (cycleFinder.hasCycle())
 		{
 			System.out.println("Cycle found");

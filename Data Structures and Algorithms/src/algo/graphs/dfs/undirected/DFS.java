@@ -1,4 +1,4 @@
-package algo.graphs.dfs;
+package algo.graphs.dfs.undirected;
 
 import ds.graphs.Graph;
 
@@ -12,48 +12,6 @@ public class DFS
 	 * Indicates if the indexed vertex is connected to the source vertex
 	 */
 	protected boolean marked[];
-	/**
-	 * Contains the last vertex on the path to this vertex w.r.t a source
-	 * vertex
-	 */
-	protected int edgeTo[];
-	/**
-	 * Number of components
-	 */
-	int componentCount;
-	/**
-	 * Component-id to which this vertex belongs
-	 */
-	int id[];
-	/**
-	 * Number of adjacent vertices
-	 */
-	int adjCount[];
-	/**
-	 * Indicates if the graph has a cycle
-	 */
-	boolean hasCycle;
-	/**
-	 * Colour of this vertex
-	 */
-	boolean color[];
-	/**
-	 * Indicates if this graph is bipartite
-	 */
-	boolean isBipartite;
-
-	// Initialise all data members. Method called by constructors
-	private void initialise(Graph G)
-	{
-		marked = new boolean[G.V()];
-		edgeTo = new int[G.V()];
-		adjCount = new int[G.V()];
-		id = new int[G.V()];
-		componentCount = 0;
-		hasCycle = false;
-		color = new boolean[G.V()];
-		isBipartite = true;
-	}
 
 	/**
 	 * A pre-processing constructor which conducts a DFS w.r.t every vertex of
@@ -68,7 +26,7 @@ public class DFS
 	 */
 	DFS(Graph G)
 	{
-		initialise(G);
+		marked = new boolean[G.V()];
 
 		// find a vertex to serve as the starting point for a DFS search in each
 		// component. 'componentCount' will not only keep a count of the
@@ -76,10 +34,7 @@ public class DFS
 		// also serve as the id to use for all vertices of that component
 		for (int v = 0; v < G.V(); v++)
 			if (!marked[v])
-			{
 				dfs(G, v);
-				componentCount++;
-			}
 	}
 
 	/**
@@ -93,19 +48,8 @@ public class DFS
 	 */
 	DFS(Graph G, int s)
 	{
-		initialise(G);
-		dfs(G, s, s);
-	}
-
-	/**
-	 * Depth first search on {@code G}
-	 * 
-	 * @param G Adjacency-list representation of the graph
-	 * @param s Origin vertex where DFS starts
-	 */
-	private void dfs(Graph G, int s)
-	{
-		dfs(G, s, s);
+		marked = new boolean[G.V()];
+		dfs(G, s);
 	}
 
 	/**
@@ -113,27 +57,13 @@ public class DFS
 	 * 
 	 * @param G Adjacency-list representation of the graph
 	 * @param v Origin vertex where DFS starts
-	 * @param p Previous vertex leading to {@code v}
 	 */
-	private void dfs(Graph G, int v, int p)
+	private void dfs(Graph G, int v)
 	{
 		marked[v] = true;
-		id[v] = componentCount;
-		adjCount[v]++;
 
 		for (int w : G.adj(v))
 			if (!marked[w])
-			{
-				color[w] = !color[v];
-				edgeTo[w] = v;
-				dfs(G, w, v);
-			}
-			else
-			{
-				if (w != p)
-					hasCycle = true;
-				if (color[w] == color[v])
-					isBipartite = false;
-			}
+				dfs(G, w);
 	}
 }

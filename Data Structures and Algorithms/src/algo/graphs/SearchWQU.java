@@ -1,6 +1,6 @@
 package algo.graphs;
 
-import algo.graphs.dfs.DFS;
+import algo.graphs.dfs.undirected.DFS;
 import ds.graphs.Graph;
 import ds.graphs.ISearch;
 import ds.uf.UnionFindWQU;

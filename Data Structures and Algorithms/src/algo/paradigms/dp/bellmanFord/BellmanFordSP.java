@@ -1,9 +1,10 @@
 package algo.paradigms.dp.bellmanFord;
+
 import java.util.LinkedList;
 
-import algo.graphs.dfs.DirectedCycleDFS;
+import algo.graphs.dfs.directed.DirectedCycle;
 import ds.graphs.Digraph;
-import ds.graphs.DirectedEdge;
+import ds.graphs.WeightedDirectedEdge;
 import ds.graphs.EdgeWeightedDigraph;
 import ds.graphs.IShortestPaths;
 import edu.princeton.cs.introcs.In;
@@ -14,7 +15,7 @@ public class BellmanFordSP implements IShortestPaths
 	// queue contains vertices which have thier distTo[]
 	// changed in the previous pass
 	private LinkedList<Vertex> queue;
-	private int noPasses;
+	private int subProblemSize;
 
 	// null if there are no negative cycles
 	private Iterable<Integer> negativeCycle;
@@ -23,6 +24,7 @@ public class BellmanFordSP implements IShortestPaths
 	{
 		vertex = new Vertex[G.V()];
 		queue = new LinkedList<Vertex>();
+		subProblemSize = 0;
 
 		for (int i = 0; i < G.V(); i++)
 			vertex[i] = new Vertex(i, Double.POSITIVE_INFINITY);
@@ -30,17 +32,21 @@ public class BellmanFordSP implements IShortestPaths
 		vertex[s].distTo = 0.0;
 		queue.addFirst(vertex[s]);
 		vertex[s].onQ = true;
+		subProblemSize = 1;
 		while (!queue.isEmpty() && !this.hasNegativeCycle())
 		{
 			Vertex v = queue.removeLast();
 			v.onQ = false;
 			relax(G, v);
+			if (subProblemSize == G.V())
+				findNegativeCycle(G);
+			subProblemSize++;
 		}
 	}
 
 	private void relax(EdgeWeightedDigraph G, Vertex v)
 	{
-		for (DirectedEdge e : G.adj(v.label))
+		for (WeightedDirectedEdge e : G.adj(v.label))
 		{
 			Vertex w = vertex[e.to()];
 			if (w.distTo > v.distTo + e.weight())
@@ -54,9 +60,6 @@ public class BellmanFordSP implements IShortestPaths
 				}
 			}
 		}
-		if (noPasses == G.V())
-			findNegativeCycle(G);
-		noPasses++;
 	}
 
 	private void findNegativeCycle(EdgeWeightedDigraph G)
@@ -75,7 +78,7 @@ public class BellmanFordSP implements IShortestPaths
 			System.exit(1);
 		}
 
-		DirectedCycleDFS cycle = new DirectedCycleDFS(spt);
+		DirectedCycle cycle = new DirectedCycle(spt);
 		if (cycle.hasCycle())
 			negativeCycle = cycle.cycle();
 	}
@@ -108,12 +111,13 @@ public class BellmanFordSP implements IShortestPaths
 	 * @see ShortestPaths#pathTo(int)
 	 */
 	@Override
-	public Iterable<DirectedEdge> pathTo(int v)
+	public Iterable<WeightedDirectedEdge> pathTo(int v)
 	{
 		if (!hasPathTo(v))
 			return null;
-		LinkedList<DirectedEdge> stack = new LinkedList<DirectedEdge>();
-		for (DirectedEdge e = vertex[v].edgeTo; e != null; e = vertex[e.from()].edgeTo)
+		LinkedList<WeightedDirectedEdge> stack = new LinkedList<WeightedDirectedEdge>();
+		for (WeightedDirectedEdge e = vertex[v].edgeTo; e != null; e = vertex[e
+				.from()].edgeTo)
 			stack.addFirst(e);
 		return stack;
 	}
@@ -141,32 +145,18 @@ public class BellmanFordSP implements IShortestPaths
 				System.out.print(s + " to " + t + " ("
 						+ String.format("%.2f", sp.distTo(t)) + ") : ");
 				if (sp.hasPathTo(t))
-					for (DirectedEdge e : sp.pathTo(t))
+					for (WeightedDirectedEdge e : sp.pathTo(t))
 						System.out.print(e + "  ");
 				System.out.println();
 			}
 		}
 		else
 		{
-			System.out
-					.println("Graph has a negative cycle reachable from " + s + ". Can't find the shortest path tree");
+			System.out.println("Graph has a negative cycle reachable from " + s
+					+ ". Can't find the shortest path tree");
 			for (int v : sp.negativeCycle())
 				System.out.println(v);
 		}
 	}
 
-}
-
-class Vertex 
-{
-	int label;
-	double distTo; // shortest distance to source vertex
-	DirectedEdge edgeTo; // edge connecting vertex to the spt
-	boolean onQ; // To ensure that we don't add duplicates
-	
-	public Vertex(int label, double distTo)
-	{
-		this.label = label;
-		this.distTo = distTo;
-	}
 }

@@ -1,4 +1,4 @@
-package algo.graphs.dfs;
+package algo.graphs.dfs.undirected;
 
 import ds.graphs.Graph;
 import ds.graphs.IPaths;
@@ -10,21 +10,37 @@ import java.util.LinkedList;
  * Implements {@code Paths} using DFS
  * 
  */
-public class PathsDFS extends DFS implements IPaths
+public class Paths implements IPaths
 {
 	/**
 	 * Source vertex w.r.t which paths are determined 
 	 */
 	private int s;
+	protected boolean marked[];
+	protected int edgeTo[];
 	
 	/**
 	 * {@link DFS#DFS(Graph, int)}
 	 * 
 	 */
-	public PathsDFS(Graph G, int s)
+	public Paths(Graph G, int s)
 	{
-		super(G, s);
+		marked = new boolean[G.V()];
+		edgeTo = new int[G.V()];
+		dfs(G, s);
 		this.s = s;
+	}
+	
+	private void dfs(Graph G, int v)
+	{
+		marked[v] = true;
+
+		for (int w : G.adj(v))
+			if (!marked[w])
+			{
+				edgeTo[w] = v;
+				dfs(G, w);
+			}
 	}
 
 	/*
@@ -74,7 +90,7 @@ public class PathsDFS extends DFS implements IPaths
 		}
 
 		int s = Integer.parseInt(args[1]);
-		IPaths paths = new PathsDFS(G, s);
+		IPaths paths = new Paths(G, s);
 
 		for (int v = 0; v < G.V(); v++)
 		{

@@ -1,4 +1,4 @@
-package algo.graphs.dfs;
+package algo.graphs.dfs.undirected;
 
 import ds.graphs.Graph;
 import ds.graphs.ISearch;
@@ -6,22 +6,34 @@ import edu.princeton.cs.introcs.In;
 /**
  * Implements {@code Search} using DFS
  */
-public class SearchDFS extends DFS implements ISearch
+public class Search implements ISearch
 {
 	/**
 	 * Source vertex w.r.t. which search operations are implemented
 	 */
 	private int s;
+	protected boolean marked[];
+	int adjCount[];
 
 	/**
 	 * {@link DFS#DFS(Graph, int)}
 	 */
-	public SearchDFS(Graph G, int s)
+	public Search(Graph G, int s)
 	{
-		super(G, s);
+		adjCount = new int[G.V()];
+		dfs(G, s);
 		this.s = s;
 	}
 
+	private void dfs(Graph G, int v)
+	{
+		marked[v] = true;
+		adjCount[v]++;
+
+		for (int w : G.adj(v))
+			if (!marked[w])
+				dfs(G, w);
+	}
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -63,7 +75,7 @@ public class SearchDFS extends DFS implements ISearch
 		}
 
 		int s = Integer.parseInt(args[1]);
-		ISearch search = new SearchDFS(G, s);
+		ISearch search = new Search(G, s);
 
 		for (int v = 0; v < G.V(); v++)
 			if (search.marked(v))

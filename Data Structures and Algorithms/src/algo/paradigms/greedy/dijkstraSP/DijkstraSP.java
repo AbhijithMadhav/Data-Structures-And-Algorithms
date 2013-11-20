@@ -1,6 +1,6 @@
-package algo.paradigms.greedy.DijkstraSP;
+package algo.paradigms.greedy.dijkstraSP;
 
-import ds.graphs.DirectedEdge;
+import ds.graphs.WeightedDirectedEdge;
 import ds.graphs.EdgeWeightedDigraph;
 import ds.graphs.IShortestPaths;
 import edu.princeton.cs.introcs.In;
@@ -57,7 +57,7 @@ public class DijkstraSP implements IShortestPaths
 	private void update(EdgeWeightedDigraph G, SPVertex v)
 	{
 		// for all adjacent vertices of v
-		for (DirectedEdge e : G.adj(v.name))
+		for (WeightedDirectedEdge e : G.adj(v.name))
 		{
 			SPVertex w = vertex[e.to()]; // adjacent vertex of v
 			if (w.distFromSource > v.distFromSource + e.weight())
@@ -100,12 +100,12 @@ public class DijkstraSP implements IShortestPaths
 		return vertex[v].distFromSource != Double.POSITIVE_INFINITY;
 	}
 
-	public Iterable<DirectedEdge> pathTo(int v)
+	public Iterable<WeightedDirectedEdge> pathTo(int v)
 	{
 		if (!hasPathTo(v))
 			return null;
-		LinkedList<DirectedEdge> stack = new LinkedList<DirectedEdge>();
-		for (DirectedEdge e = vertex[v].edgeFromSPT; e != null; e = vertex[e
+		LinkedList<WeightedDirectedEdge> stack = new LinkedList<WeightedDirectedEdge>();
+		for (WeightedDirectedEdge e = vertex[v].edgeFromSPT; e != null; e = vertex[e
 				.from()].edgeFromSPT)
 			stack.addFirst(e);
 		return stack;
@@ -125,7 +125,7 @@ public class DijkstraSP implements IShortestPaths
 			System.out.print(s + " to " + t + " ("
 					+ String.format("%.2f", sp.distTo(t)) + ") : ");
 			if (sp.hasPathTo(t))
-				for (DirectedEdge e : sp.pathTo(t))
+				for (WeightedDirectedEdge e : sp.pathTo(t))
 					System.out.print(e + "  ");
 			System.out.println();
 		}
@@ -137,7 +137,7 @@ class SPVertex implements Comparable<SPVertex>
 	int name;
 	double distFromSource;// shortest distance of a vertex to the
 	// source
-	DirectedEdge edgeFromSPT; // Edge connecting the vertex to the SPT
+	WeightedDirectedEdge edgeFromSPT; // Edge connecting the vertex to the SPT
 
 	public SPVertex(int name, double distFromSource)
 	{

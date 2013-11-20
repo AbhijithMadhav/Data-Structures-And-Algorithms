@@ -1,4 +1,4 @@
-package algo.graphs.dfs;
+package algo.graphs.dfs.undirected;
 
 import java.util.Collection;
 import java.util.LinkedList;
@@ -10,17 +10,39 @@ import edu.princeton.cs.introcs.In;
 /**
  * Finding connected components using DFS
  */
-public class ConnectedComponentsDFS extends DFS implements IConnectedComponents
+public class ConnectedComponents implements IConnectedComponents
 {
+	protected boolean marked[];
+	
+	int componentCount;
+	int id[];
 
 	/**
 	 * {@link DFS#DFS(Graph)}
 	 */
-	public ConnectedComponentsDFS(Graph G)
+	public ConnectedComponents(Graph G)
 	{
-		super(G);
+		marked = new boolean[G.V()];
+		id = new int[G.V()];
+		componentCount = 0;
+
+		for (int v = 0; v < G.V(); v++)
+			if (!marked[v])
+			{
+				dfs(G, v);
+				componentCount++;
+			}
 	}
 
+	private void dfs(Graph G, int v)
+	{
+		marked[v] = true;
+		id[v] = componentCount;
+
+		for (int w : G.adj(v))
+			if (!marked[w])
+				dfs(G, w);
+	}
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -72,7 +94,7 @@ public class ConnectedComponentsDFS extends DFS implements IConnectedComponents
 			System.exit(1);
 		}
 
-		IConnectedComponents cc = new ConnectedComponentsDFS(G);
+		IConnectedComponents cc = new ConnectedComponents(G);
 
 		int M = cc.componentCount();
 		System.out.println(M + " components");

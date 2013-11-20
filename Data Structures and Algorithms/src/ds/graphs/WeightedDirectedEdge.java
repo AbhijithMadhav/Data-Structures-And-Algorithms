@@ -1,13 +1,13 @@
 package ds.graphs;
 
 
-public class DirectedEdge implements Comparable<DirectedEdge>
+public class WeightedDirectedEdge implements Comparable<WeightedDirectedEdge>
 {
 	private int from;
 	private int to;
 	private double weight;
 	
-	public DirectedEdge(int v, int w, double weight)
+	public WeightedDirectedEdge(int v, int w, double weight)
 	{
 		from = v;
 		to = w;
@@ -33,7 +33,7 @@ public class DirectedEdge implements Comparable<DirectedEdge>
 		return String.format("%d->%d %.2f", from, to, weight);
 	}
 	
-	public int compareTo(DirectedEdge e)
+	public int compareTo(WeightedDirectedEdge e)
 	{
 		if (weight < e.weight)
 			return -1;

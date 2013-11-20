@@ -1,4 +1,4 @@
-package algo.graphs.dfs;
+package algo.graphs.dfs.directed;
 
 import ds.graphs.Digraph;
 import ds.graphs.StringDigraph;
@@ -9,7 +9,7 @@ public class Topological
 
 	public Topological(Digraph G)
 	{
-		DirectedCycleDFS cycleFinder = new DirectedCycleDFS(G);
+		DirectedCycle cycleFinder = new DirectedCycle(G);
 		if (!cycleFinder.hasCycle())
 			order = (new OrderDirectedDFS(G)).reversePostOrder();
 	}

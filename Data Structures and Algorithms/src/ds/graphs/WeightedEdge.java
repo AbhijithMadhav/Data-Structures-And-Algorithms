@@ -1,13 +1,13 @@
 package ds.graphs;
 
 
-public class Edge implements Comparable<Edge>
+public class WeightedEdge implements Comparable<WeightedEdge>
 {
 	private int v;
 	private int w;
 	private double weight;
 
-	public Edge(int v, int w, double weight)
+	public WeightedEdge(int v, int w, double weight)
 	{
 		this.v = v;
 		this.w = w;
@@ -35,7 +35,7 @@ public class Edge implements Comparable<Edge>
 	}
 
 	@Override
-	public int compareTo(Edge that)
+	public int compareTo(WeightedEdge that)
 	{
 		if (this.weight < that.weight)
 			return -1;

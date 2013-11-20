@@ -8,16 +8,16 @@ public class EdgeWeightedGraph
 {
 	private int V;
 	private int E;
-	private List<Edge>[] adj;
+	private List<WeightedEdge>[] adj;
 
 	@SuppressWarnings("unchecked")
 	public EdgeWeightedGraph(int V)
 	{
 		this.V = V;
 		this.E = 0;
-		adj = (List<Edge>[]) new LinkedList[V];
+		adj = (List<WeightedEdge>[]) new LinkedList[V];
 		for (int v = 0; v < V; v++)
-			adj[v] = new LinkedList<Edge>();
+			adj[v] = new LinkedList<WeightedEdge>();
 	}
 
 	@SuppressWarnings("unchecked")
@@ -25,11 +25,11 @@ public class EdgeWeightedGraph
 	{
 		this.V = in.readInt();
 		int E = in.readInt();
-		adj = (List<Edge>[]) new LinkedList[V];
+		adj = (List<WeightedEdge>[]) new LinkedList[V];
 		for (int v = 0; v < V; v++)
-			adj[v] = new LinkedList<Edge>();
+			adj[v] = new LinkedList<WeightedEdge>();
 		for (int i = 0; i < E; i++)
-			addEdge(new Edge(in.readInt(), in.readInt(), in.readDouble()));
+			addEdge(new WeightedEdge(in.readInt(), in.readInt(), in.readDouble()));
 	}
 
 	public int V()
@@ -42,7 +42,7 @@ public class EdgeWeightedGraph
 		return E;
 	}
 
-	public void addEdge(Edge e)
+	public void addEdge(WeightedEdge e)
 	{
 		int v = e.either();
 		adj[v].add(e);
@@ -51,17 +51,17 @@ public class EdgeWeightedGraph
 		E++;
 	}
 
-	public Iterable<Edge> adj(int v)
+	public Iterable<WeightedEdge> adj(int v)
 	{
 		return adj[v];
 	}
 
-	public Iterable<Edge> edges()
+	public Iterable<WeightedEdge> edges()
 	{
-		List<Edge> edges = new LinkedList<Edge>();
+		List<WeightedEdge> edges = new LinkedList<WeightedEdge>();
 
 		for (int v = 0; v < V(); v++)
-			for (Edge e : adj[v])
+			for (WeightedEdge e : adj[v])
 				if (e.other(v) > v)
 					edges.add(e);
 		return edges;
@@ -74,7 +74,7 @@ public class EdgeWeightedGraph
 		for (int v = 0; v < V(); v++)
 		{
 			s += v + ": ";
-			for (Edge e : adj[v])
+			for (WeightedEdge e : adj[v])
 				s += e + ", ";
 			s += "\n";
 		}

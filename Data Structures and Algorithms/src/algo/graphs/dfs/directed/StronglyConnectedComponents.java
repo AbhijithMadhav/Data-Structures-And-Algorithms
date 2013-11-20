@@ -1,4 +1,4 @@
-package algo.graphs.dfs;
+package algo.graphs.dfs.directed;
 
 import ds.graphs.Digraph;
 import ds.graphs.Graph;

@@ -1,4 +1,4 @@
-package algo.graphs.dfs;
+package algo.graphs.dfs.directed;
 
 import java.util.LinkedList;
 import java.util.List;

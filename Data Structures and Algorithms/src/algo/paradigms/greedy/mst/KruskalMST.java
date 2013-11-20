@@ -3,7 +3,7 @@ package algo.paradigms.greedy.mst;
 import ds.uf.UnionFind;
 import ds.uf.UnionFindWQU;
 import edu.princeton.cs.introcs.In;
-import ds.graphs.Edge;
+import ds.graphs.WeightedEdge;
 import ds.graphs.EdgeWeightedGraph;
 
 import java.util.LinkedList;
@@ -12,21 +12,21 @@ import java.util.Queue;
 
 public class KruskalMST
 {
-	private Queue<Edge> mst;
+	private Queue<WeightedEdge> mst;
 	private double weight;
 
 	public KruskalMST(EdgeWeightedGraph G)
 	{
-		PriorityQueue<Edge> pq = new PriorityQueue<Edge>();
-		for (Edge e : G.edges())
+		PriorityQueue<WeightedEdge> pq = new PriorityQueue<WeightedEdge>();
+		for (WeightedEdge e : G.edges())
 			pq.add(e);
 
 		UnionFind uf = new UnionFindWQU(G.V());
-		mst = new LinkedList<Edge>();
+		mst = new LinkedList<WeightedEdge>();
 
 		while (!pq.isEmpty())
 		{
-			Edge e = pq.remove();
+			WeightedEdge e = pq.remove();
 			int v = e.either(), w = e.other(v);
 
 			// 2 find operations
@@ -42,7 +42,7 @@ public class KruskalMST
 		}
 	}
 
-	public Iterable<Edge> edges()
+	public Iterable<WeightedEdge> edges()
 	{
 		return mst;
 	}
@@ -57,7 +57,7 @@ public class KruskalMST
 		KruskalMST mst = new KruskalMST(new EdgeWeightedGraph(new In(args[0])));
 
 		System.out.println("Minimum spanning tree of " + args[0]);
-		for (Edge e : mst.edges())
+		for (WeightedEdge e : mst.edges())
 			System.out.println(e);
 		System.out.println("Weight : " + mst.weight());
 
