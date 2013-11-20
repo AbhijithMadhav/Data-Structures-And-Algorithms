@@ -1,9 +1,11 @@
 package ds.graphs;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.StringTokenizer;
+
 import edu.princeton.cs.introcs.In;
 import edu.princeton.cs.introcs.StdIn;
-import ds.st.ST;
-import ds.st.SeparateChainingHashST;
 
 /**
  * A graph implementation using the adjacency list representation where
@@ -17,7 +19,7 @@ public class StringGraph
 	 * Used to convert string names of vertexes to integer names for internal
 	 * graph processing
 	 */
-	private ST<String, Integer> st;
+	private Map<String, Integer> st;
 	/**
 	 * Used to convert integer names of vertices to string name for the
 	 * application
@@ -40,18 +42,21 @@ public class StringGraph
 		In in = new In(filename);
 
 		// Create the index
-		st = new SeparateChainingHashST<String, Integer>();
+		st = new HashMap<String, Integer>();
 		while (in.hasNextLine())
 		{
-			String names[] = in.readLine().split(delim);
-			for (int i = 0; i < names.length; i++)
-				if (!contains(names[i]))
-					st.put(names[i], st.size());
+			StringTokenizer tokenizer = new StringTokenizer(in.readLine(), delim);
+			while (tokenizer.hasMoreTokens())
+			{
+				String s = tokenizer.nextToken();
+				if (!contains(s))
+					st.put(s, st.size());
+			}
 		}
 
 		// Create the reverse index
 		keys = new String[st.size()];
-		for (String name : st.keys())
+		for (String name : st.keySet())
 			keys[st.get(name)] = name;
 
 		// Create the graph
@@ -82,7 +87,7 @@ public class StringGraph
 	 */
 	public boolean contains(String key)
 	{
-		return st.contains(key);
+		return st.containsKey(key);
 
 	}
 

@@ -1,10 +1,9 @@
 package ds.graphs;
 
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Vector;
-
-import ds.st.ST;
-import ds.st.SeparateChainingHashST;
 
 /**
  * A graph implementation using the adjacency list representation where
@@ -18,7 +17,7 @@ public class SymbolDigraph<T>
 	 * Used to convert string names of vertexes to integer names for internal
 	 * graph processing
 	 */
-	private ST<T, Integer> st;
+	private Map<T, Integer> st;
 	/**
 	 * Used to convert integer names of vertices to string name for the
 	 * application
@@ -31,7 +30,7 @@ public class SymbolDigraph<T>
 
 	public SymbolDigraph(int V)
 	{
-		st = new SeparateChainingHashST<T, Integer>();
+		st = new HashMap<T, Integer>();
 		keys = new Vector<T>(V);
 		for (int i = 0; i < V; i++)
 			keys.add(null);
@@ -63,7 +62,7 @@ public class SymbolDigraph<T>
 	 */
 	public boolean contains(T key)
 	{
-		return st.contains(key);
+		return st.containsKey(key);
 
 	}
 

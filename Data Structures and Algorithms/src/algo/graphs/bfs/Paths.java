@@ -9,11 +9,11 @@ import java.util.LinkedList;
  *Implements {@code Paths} using BFS
  * 
  */
-public class PathsBFS extends BFS implements IPaths
+public class Paths extends BFS implements IPaths
 {
 	private int s;
 	
-	public PathsBFS(Graph G, int s)
+	public Paths(Graph G, int s)
 	{
 		super(G, s);
 		this.s = s;
@@ -67,7 +67,7 @@ public class PathsBFS extends BFS implements IPaths
 		}
 
 		int s = Integer.parseInt(args[1]);
-		IPaths paths = new PathsBFS(G, s);
+		IPaths paths = new Paths(G, s);
 
 		for (int v = 0; v < G.V(); v++)
 		{

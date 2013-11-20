@@ -7,7 +7,7 @@ import edu.princeton.cs.introcs.In;
  * Implements {@code Search} using BFS
  * 
  */
-public class SearchBFS extends BFS implements ISearch
+public class Search extends BFS implements ISearch
 {
 	/**
 	 * Source vertex w.r.t. which search operations are implemented
@@ -17,7 +17,7 @@ public class SearchBFS extends BFS implements ISearch
 	/**
 	 * {@link BFS#BFS(Graph, int)}
 	 */
-	public SearchBFS(Graph G, int s)
+	public Search(Graph G, int s)
 	{
 		super(G, s);
 		this.s = s;
@@ -64,7 +64,7 @@ public class SearchBFS extends BFS implements ISearch
 		}
 
 		int s = Integer.parseInt(args[1]);
-		ISearch search = new SearchBFS(G, s);
+		ISearch search = new Search(G, s);
 
 		for (int v = 0; v < G.V(); v++)
 			if (search.marked(v))
