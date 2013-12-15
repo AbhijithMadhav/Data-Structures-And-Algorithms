@@ -1,28 +1,33 @@
 package algo.graphs.dfs.undirected;
 
+import java.util.Stack;
+
 import ds.graphs.Graph;
 import ds.graphs.ICycle;
 import edu.princeton.cs.introcs.In;
+
 // To do : can't I produce the cycle??
 /**
  * Implements {@code Cycle} using DFS
- *
+ * 
  */
 final public class Cycle implements ICycle
 {
 	private boolean hasCycle;
 	private boolean marked[];
-	
+	Stack<Integer> cycle;
+
 	public Cycle(Graph G)
 	{
 		hasCycle = false;
+		cycle = new Stack<>();
 		marked = new boolean[G.V()];
 
 		for (int v = 0; v < G.V(); v++)
 			if (!marked[v])
 				dfs(G, v, v);
 	}
-	
+
 	/**
 	 * Depth first search on {@code G}
 	 * 
@@ -36,17 +41,30 @@ final public class Cycle implements ICycle
 
 		for (int w : G.adj(v))
 			if (!marked[w])
+			{
+				if (!hasCycle())
+					cycle.push(v);
 				dfs(G, w, v);
+				if (!hasCycle())
+					cycle.pop();
+			}
 			else
 			{
-				if (w != p) // vi s reachable from both w and p
+				if (w != p)
+				{
 					hasCycle = true;
+				}
 			}
 	}
 
 	public boolean hasCycle()
 	{
 		return hasCycle;
+	}
+
+	public Stack<Integer> cycle()
+	{
+		return cycle;
 	}
 
 	/**
@@ -59,7 +77,7 @@ final public class Cycle implements ICycle
 		Graph G = null;
 		try
 		{
-			G = new Graph(new In(args[0]));
+			G = new Graph(new In("tinyG.txt"));
 		}
 		catch (Exception e)
 		{
@@ -68,10 +86,15 @@ final public class Cycle implements ICycle
 		}
 
 		Cycle c = new Cycle(G);
-		if(c.hasCycle())
-			System.out.println(args[0] + " : Cycle detected");
+		if (c.hasCycle())
+		{
+			System.out.println("tinyG.txt" + " : Cycle detected");
+			System.out.println(c.cycle.size());
+			for (Integer v : c.cycle)
+				System.out.print(v + " - ");
+		}
 		else
-			System.out.println(args[0] + " : Cycle not present");
+			System.out.println("tinyG.txt" + " : Cycle not present");
 	}
-		
+
 }

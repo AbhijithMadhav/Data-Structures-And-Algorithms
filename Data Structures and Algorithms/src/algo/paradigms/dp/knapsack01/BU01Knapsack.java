@@ -15,7 +15,7 @@ public class BU01Knapsack
 	private void knapsack(int n, int capacity, int w[], int v[])
 	{
 		for (int c = 1; c <= capacity; c++) // From the smallest subproblem to
-											// the
+							 				// the
 											// biggest
 		{
 			int max = 0;
