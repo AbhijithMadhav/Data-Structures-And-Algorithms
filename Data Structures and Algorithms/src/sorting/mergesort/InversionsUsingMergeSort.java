@@ -9,11 +9,10 @@ import sorting.common.SortHelper;
  * Section 2.5.
  */
 
-@SuppressWarnings("rawtypes")
-public class InversionsUsingMergeSort
+public class InversionsUsingMergeSort<T extends Comparable<T>>
 {
 	// Merge a[lo..mid] with a[mid+1..hi].
-	private static int merge(Comparable[] a, Comparable[] aux,int lo, int mid, int hi)
+	private int merge(T[] a, T[] aux,int lo, int mid, int hi)
 	{
 		// i and j is used to point to the currently processing element in the
 		// first and 2nd half respectively
@@ -43,10 +42,11 @@ public class InversionsUsingMergeSort
 		return inversions;
 	}
 
-	public static int count(Comparable[] a)
+	public int count(T[] a)
 	{
 		// Allocate space just once. Non-static aux[] used
-		Comparable[] aux = new Comparable[a.length]; 
+		@SuppressWarnings("unchecked")
+		T[] aux = (T[]) new Comparable[a.length]; 
 
 		int bInversions = brute(a);
 		int inversions = count(a, aux, 0, a.length - 1);
@@ -56,7 +56,7 @@ public class InversionsUsingMergeSort
 		return inversions;
 	}
 
-	private static int count(Comparable[] a, Comparable[] aux,int lo, int hi)
+	private int count(T[] a, T[] aux,int lo, int hi)
 	{ // Sort a[lo..hi].
 		if (hi <= lo)
 			return 0;
@@ -71,7 +71,7 @@ public class InversionsUsingMergeSort
 		return inversions;
 	}
 
-	private static int brute(Comparable[] a)
+	private int brute(T[] a)
 	{
 		int inversions = 0;
 		for (int i = 1; i < a.length; i++)
@@ -99,7 +99,7 @@ public class InversionsUsingMergeSort
 		// show(a);
 
 		assert SortHelper.isSorted(a);
-		System.out.println("N = " + N + "\nInversions = " + count(a));
+		System.out.println("N = " + N + "\nInversions = " + new InversionsUsingMergeSort<Integer>().count(a));
 		
 	}
 }

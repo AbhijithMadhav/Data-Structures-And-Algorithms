@@ -1,4 +1,4 @@
-package sorting.insertion;
+package sorting;
 
 /*
  * 2.1.26 Primitive types. Develop a version of insertion sort that sorts

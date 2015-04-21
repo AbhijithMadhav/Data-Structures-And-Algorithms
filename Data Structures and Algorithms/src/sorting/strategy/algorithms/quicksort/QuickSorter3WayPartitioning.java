@@ -1,10 +1,8 @@
-package sorting.quicksort;
+package sorting.strategy.algorithms.quicksort;
 
+import sorting.Sorter;
 import edu.princeton.cs.introcs.StdRandom;
-import sorting.common.SortHelper;
-// to do - which insertion sort to use
-@SuppressWarnings("rawtypes")
-public class QuickSort3WayPartitioning
+public class QuickSorter3WayPartitioning<T extends Comparable<T>> extends Sorter<T>
 {
 	/*
 	 * public static void sortWithFastThreeWayPartitioning(Comparable[] a) {
@@ -43,8 +41,7 @@ public class QuickSort3WayPartitioning
 	 * 1, hi); // sort the // greater // part }
 	 */
 
-	@SuppressWarnings("unchecked")
-	private static void sort(Comparable[] a, int lo,
+	public void sort(T[] a, int lo,
 			int hi)
 	{
 		if (hi <= lo)
@@ -54,14 +51,14 @@ public class QuickSort3WayPartitioning
 		int gt = hi;
 		int i = lo;
 
-		Comparable v = a[lo];
+		T v = a[lo];
 		while (i <= gt)
 		{
 			int cmp = a[i].compareTo(v);
 			if (cmp < 0)
-				SortHelper.exch(a, i++, lt++);
+				exch(a, i++, lt++);
 			else if (cmp > 0)
-				SortHelper.exch(a, i, gt--);
+				exch(a, i, gt--);
 			else
 				i++;
 		}
@@ -70,7 +67,7 @@ public class QuickSort3WayPartitioning
 		sort(a, gt + 1, hi);
 	}
 
-	public static void sort(Comparable[] a)
+	public void sort(T[] a)
 	{
 		StdRandom.shuffle(a);
 		sort(a, 0, a.length - 1);

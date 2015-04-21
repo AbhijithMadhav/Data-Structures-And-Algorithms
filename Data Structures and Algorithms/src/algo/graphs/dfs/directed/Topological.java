@@ -6,7 +6,7 @@ import ds.graphs.StringDigraph;
 public class Topological
 {
 	private Iterable<Integer> order;
-
+	
 	public Topological(Digraph G)
 	{
 		DirectedCycle cycleFinder = new DirectedCycle(G);

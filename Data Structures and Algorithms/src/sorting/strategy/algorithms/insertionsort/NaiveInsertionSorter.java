@@ -1,12 +1,13 @@
-package sorting.insertion;
+package sorting.strategy.algorithms.insertionsort;
 import java.lang.Comparable;
 
+import sorting.Sorter;
 import sorting.common.SortHelper;
 
-@SuppressWarnings("rawtypes")
-public class InsertionSort
+public class NaiveInsertionSorter<T extends Comparable<T>> extends Sorter<T>
 {
-	public static void sort(Comparable[] a, int lo, int hi)
+	@Override
+	public void sort(T[] a, int lo, int hi)
 	{// Sort a[] into increasing order.
 		for (int i = lo + 1; i <= hi; i++)
 		{ // Insert a[i] among a[i-1], a[i-2], a[i-3]... ..
@@ -15,7 +16,8 @@ public class InsertionSort
 		}
 	}
 	
-	public static void sort(Comparable[] a)
+	@Override
+	public  void sort(T[] a)
 	{
 		sort(a, 0, a.length - 1);
 	}

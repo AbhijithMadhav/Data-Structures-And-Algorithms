@@ -10,37 +10,26 @@ import java.util.LinkedList;
  * Implements {@code Paths} using DFS
  * 
  */
-public class Paths implements IPaths
+public class Paths extends SourceDFS implements IPaths
 {
 	/**
 	 * Source vertex w.r.t which paths are determined 
 	 */
 	private int s;
-	protected boolean marked[];
 	protected int edgeTo[];
 	
-	/**
-	 * {@link DFS#DFS(Graph, int)}
-	 * 
-	 */
 	public Paths(Graph G, int s)
 	{
-		marked = new boolean[G.V()];
+		super(G);
 		edgeTo = new int[G.V()];
-		dfs(G, s);
 		this.s = s;
+		dfs(G, s);
 	}
 	
-	private void dfs(Graph G, int v)
+	@Override
+	public void preAdjacentVertexVisit(int source, int adj)
 	{
-		marked[v] = true;
-
-		for (int w : G.adj(v))
-			if (!marked[w])
-			{
-				edgeTo[w] = v;
-				dfs(G, w);
-			}
+		edgeTo[adj] = source;
 	}
 
 	/*
@@ -50,7 +39,7 @@ public class Paths implements IPaths
 	@Override
 	public boolean hasPathTo(int v)
 	{
-		return marked[v];
+		return marked(v);
 	}
 
 	/*
@@ -103,5 +92,19 @@ public class Paths implements IPaths
 						System.out.print("-" + x);
 			System.out.println();
 		}
+	}
+
+	@Override
+	public void preAnyAdjacentVerticesVisit(int source)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void postAdjacentVertexVisit(int source, int adj)
+	{
+		// TODO Auto-generated method stub
+		
 	}
 }

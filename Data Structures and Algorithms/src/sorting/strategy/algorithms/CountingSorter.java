@@ -1,9 +1,15 @@
-package sorting.countingsort;
+package sorting.strategy.algorithms;
 
-public class CountingSort {
+import sorting.Sorter;
+
+public class CountingSorter extends Sorter<Integer>{
+
+	public void sort(Integer[] a, int low, int hi) {
+		throw new UnsupportedOperationException();
+	}
 	
-	public static void sort(int a[])
-	{
+	@Override
+	public void sort(Integer[] a) {
 		// auxillary array
 		int b[] = new int[a.length];
 		
@@ -47,22 +53,5 @@ public class CountingSort {
 		// Copy back
 		for (int i = 0; i < a.length; i++)
 			a[i] = b[i];
-	}
-	
-	public static int max(int a[])
-	{
-		int max = Integer.MIN_VALUE;
-		for (int i = 0; i < a.length; i++)
-			if (a[i] > max)
-				max = a[i];
-		return max;
-	}
-	
-	public static void main(String s[])
-	{
-		int a[] = {6, 0, 2, 0, 1, 3, 4, 6, 1, 3, 2};
-		sort(a);
-		for (int i = 0; i < a.length; i++)
-			System.out.print(a[i] + " ");
 	}
 }

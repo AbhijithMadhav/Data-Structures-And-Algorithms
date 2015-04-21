@@ -10,10 +10,8 @@ import edu.princeton.cs.introcs.In;
 /**
  * Finding connected components using DFS
  */
-public class ConnectedComponents implements IConnectedComponents
+public class ConnectedComponents extends AllDFS implements IConnectedComponents
 {
-	protected boolean marked[];
-	
 	int componentCount;
 	int id[];
 
@@ -22,27 +20,25 @@ public class ConnectedComponents implements IConnectedComponents
 	 */
 	public ConnectedComponents(Graph G)
 	{
-		marked = new boolean[G.V()];
-		id = new int[G.V()];
-		componentCount = 0;
-
-		for (int v = 0; v < G.V(); v++)
-			if (!marked[v])
-			{
-				dfs(G, v);
-				componentCount++;
-			}
+		super(G);
 	}
-
-	private void dfs(Graph G, int v)
+	
+	public void postSourceDFS(Graph G, int source)
 	{
-		marked[v] = true;
-		id[v] = componentCount;
-
-		for (int w : G.adj(v))
-			if (!marked[w])
-				dfs(G, w);
+		componentCount++;
 	}
+	
+	public void allDFSInitialize(Graph G)
+	{
+		componentCount = 0;
+		id = new int[G.V()];
+	}
+
+	public void preAnyAdjacentVerticesVisit(Graph G, int source)
+	{
+		id[source] = componentCount; 
+	}
+	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -114,5 +110,12 @@ public class ConnectedComponents implements IConnectedComponents
 			System.out.println();
 		}
 
+	}
+
+	@Override
+	public void postEachSourceDFS(int source)
+	{
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -125,7 +125,7 @@ public class FloydWarshall
 	public static void main(String[] args)
 	{
 		EdgeWeightedDigraph G = new EdgeWeightedDigraph(new In(args[0]));
-		FloydWarshall sp = new FloydWarshall(G);
+		new FloydWarshall(G);
 
 	}
 

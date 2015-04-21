@@ -1,12 +1,13 @@
-package sorting.quicksort;
+package sorting.strategy.algorithms.quicksort;
 
 import edu.princeton.cs.introcs.StdRandom;
-import sorting.common.SortHelper;
+
 import java.util.Stack;
 
-// to do - which insertion sort to use
-@SuppressWarnings("rawtypes")
-public class QuickSortIterative 
+import sorting.Sorter;
+
+
+public class QuickSorterIterative<T extends Comparable<T>> extends Sorter<T>
 {
 	/*
 	 * 2.3.20 Nonrecursive quicksort. Implement a nonrecursive version of
@@ -15,18 +16,18 @@ public class QuickSortIterative
 	 * Note : Push the larger of the subarrays onto the stack first, which
 	 * guarantees that the stack will have at most lg N entries.
 	 */
-	public static void sortIterative(Comparable[] a)
+	public void sort(T[] a, int lo, int hi)
 	{
 		StdRandom.shuffle(a);
 		Stack<ArrayBounds> s = new Stack<ArrayBounds>();
-		s.push(new ArrayBounds(0, a.length - 1));
+		s.push(new ArrayBounds(lo, hi));
 		do
 		{
 			ArrayBounds p = s.pop();
-			int hi = p.getHi();
-			int lo = p.getLo();
+			int h = p.getHi();
+			int l = p.getLo();
 
-			int j = partition(a, lo, hi);
+			int j = partition(a, l, h);
 			if (j - 1 - lo <= hi - (j + 1))
 			{
 				if (j + 1 < hi)
@@ -44,24 +45,24 @@ public class QuickSortIterative
 		} while (!s.empty());
 	}
 	
-	private static int partition(Comparable[] a, int lo, int hi)
+	private int partition(T[] a, int lo, int hi)
 	{ // Partition into a[lo..i-1], a[i], a[i+1..hi].
 		int i = lo, j = hi + 1; // left and right scan indices
-		Comparable v = a[lo]; // partitioning item
+		T v = a[lo]; // partitioning item
 		while (true)
 		{ // Scan right, scan left, check for scan complete, and exchange.
-			while (SortHelper.less(a[++i], v))
+			while (less(a[++i], v))
 				if (i == hi)
 					break;
-			while (SortHelper.less(v, a[--j]))
+			while (less(v, a[--j]))
 				;
 			// if (j == lo) // redundant as v = a[lo] is never less than a[lo]
 			// break;
 			if (i >= j)
 				break;
-			SortHelper.exch(a, i, j);
+			exch(a, i, j);
 		}
-		SortHelper.exch(a, lo, j); // Put v = a[j] into position
+		exch(a, lo, j); // Put v = a[j] into position
 		return j; // with a[lo..j-1] <= a[j] <= a[j+1..hi].
 	}
 }

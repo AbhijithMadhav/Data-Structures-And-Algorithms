@@ -1,12 +1,10 @@
-package sorting.quicksort;
+package sorting.strategy.algorithms.quicksort;
 
+import sorting.Sorter;
+import sorting.strategy.algorithms.insertionsort.InsertionSorter;
 import edu.princeton.cs.introcs.StdRandom;
-import sorting.common.SortHelper;
-import sorting.insertion.InsertionSortOptimized;
 
-// to do - which insertion sort to use
-@SuppressWarnings("rawtypes")
-public class QuickSortOptimized
+public class QuickSorterOptimized<T extends Comparable<T>> extends Sorter<T>
 {
 	/*
 	 * 2.3.17 Sentinels. Modify the code in Algorithm 2.5 to remove both bounds
@@ -30,19 +28,20 @@ public class QuickSortOptimized
 	 */
 	private static int CUTOFF = 10;
 
-	public static void sortWithMedianOf3PartitioningAndSentinelsAndCutoff(
-			Comparable[] a)
+	private void sortWithMedianOf3PartitioningAndSentinelsAndCutoff(
+			T[] a)
 	{
 		StdRandom.shuffle(a); // Eliminate dependence on input.
 		sortWithMedianOf3PartitioningAndSentinelsAndCutoff(a, 0, a.length - 1);
 	}
 
-	private static void sortWithMedianOf3PartitioningAndSentinelsAndCutoff(
-			Comparable[] a, int lo, int hi)
+	private void sortWithMedianOf3PartitioningAndSentinelsAndCutoff(
+			T[] a, int lo, int hi)
 	{
 		if (hi - lo + 1 <= CUTOFF)
 		{
-			InsertionSortOptimized.sort(a, lo, hi);
+			Sorter<T> insertionSorter = new InsertionSorter<>();
+			insertionSorter.sort(a, lo, hi);
 			return;
 		}
 
@@ -65,14 +64,14 @@ public class QuickSortOptimized
 		 */
 
 		// place the lowest element at lo
-		SortHelper.compexch(a, lo, mid);
-		SortHelper.compexch(a, lo, hi);
+		compexch(a, lo, mid);
+		compexch(a, lo, hi);
 
 		// place the median at mid and the highest at hi
-		SortHelper.compexch(a, mid, hi);
+		compexch(a, mid, hi);
 
 		// now place it at lo + 1
-		SortHelper.exch(a, mid, lo + 1); // the median(in terms of the position) is
+		exch(a, mid, lo + 1); // the median(in terms of the position) is
 								// now the partitioning element
 
 		// To eliminate the test against the right array. Also read the note above
@@ -85,22 +84,31 @@ public class QuickSortOptimized
 		sortWithMedianOf3PartitioningAndSentinelsAndCutoff(a, j + 1, hi);
 	}
 	
-	static int partitionWithSentinels(Comparable[] a, int lo, int hi)
+	private int partitionWithSentinels(T[] a, int lo, int hi)
 	{ // Partition into a[lo..i-1], a[i], a[i+1..hi].
 		int i = lo, j = hi + 1; // left and right scan indices
-		Comparable v = a[lo]; // partitioning item
+		T v = a[lo]; // partitioning item
 		while (true)
 		{ // Scan right, scan left, check for scan complete, and exchange.
-			while (SortHelper.less(a[++i], v))
+			while (less(a[++i], v))
 				;
-			while (SortHelper.less(v, a[--j]))
+			while (less(v, a[--j]))
 				;
 			if (i >= j)
 				break;
-			SortHelper.exch(a, i, j);
+			exch(a, i, j);
 		}
-		SortHelper.exch(a, lo, j); // Put v = a[j] into position
+		exch(a, lo, j); // Put v = a[j] into position
 		return j; // with a[lo..j-1] <= a[j] <= a[j+1..hi].
+	}
+
+	@Override
+	public void sort(T[] a, int lo, int hi) {
+		sortWithMedianOf3PartitioningAndSentinelsAndCutoff(a, lo, hi);
+	}
+	
+	public void sort(T[] a) {
+		sortWithMedianOf3PartitioningAndSentinelsAndCutoff(a);
 	}
 
 

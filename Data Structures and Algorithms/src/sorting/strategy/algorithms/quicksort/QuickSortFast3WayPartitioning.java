@@ -1,16 +1,17 @@
-package sorting.quicksort;
+package sorting.strategy.algorithms.quicksort;
 
+import sorting.Sorter;
 import edu.princeton.cs.introcs.StdRandom;
-import sorting.common.SortHelper;
-class QuickSortFast3WayPartitioning
+
+class QuickSortFast3WayPartitioning<T extends Comparable<T>> extends Sorter<T> 
 {
-	public static void sort(Comparable<?>[] a)
+	public void sort(T[] a)
 	{
 		StdRandom.shuffle(a);
 		sort(a, 0, a.length - 1);
 	}
 
-	private static void sort(Comparable<?>[] a, int lo, int hi)
+	public void sort(T[] a, int lo, int hi)
 	{
 		if (hi <= lo)
 			return;
@@ -19,15 +20,14 @@ class QuickSortFast3WayPartitioning
 		sort(a, p.j + 1, hi); // Sort right part a[j+1 .. hi].
 	}
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	private static Pair partition(Comparable[] a, int lo, int hi)
+	private Pair partition(T[] a, int lo, int hi)
 	{
 		//                   3-way partitioning
 		//     =           <      unprocessed        >          =
 		//[lo ... p-1][p ... i-1][i ........ j][j+1 ... q-1][q ... hi]
 		int p = lo, i = lo, j = hi, q = hi;
 		
-		Comparable v = a[lo];
+		T v = a[lo];
 		while (true)
 		{
 			int cmp;
@@ -36,7 +36,7 @@ class QuickSortFast3WayPartitioning
 				if (i == hi)
 					break;
 				if (cmp == 0)
-					SortHelper.exch(a, i, p++);
+					exch(a, i, p++);
 				else // cmp < 0
 					i++;
 			}
@@ -46,13 +46,13 @@ class QuickSortFast3WayPartitioning
 				if (j == lo)
 					break;
 				if (cmp == 0)
-					SortHelper.exch(a, j, q--);
+					exch(a, j, q--);
 				else // cmp > 0
 					j--;
 			}
 			
 			if (i < j)
-				SortHelper.exch(a, i, j);
+				exch(a, i, j);
 			else 
 			{
 				// Swap the lesser and greater subarrays with the equal key 
@@ -65,24 +65,11 @@ class QuickSortFast3WayPartitioning
 				for (int k = i - p; k < hi - (q - j + 1) + 1; k++)
 					a[k] = v;
 				
-				return new QuickSortFast3WayPartitioning().new Pair(i - p + 1, 
+				return new QuickSortFast3WayPartitioning<T>().new Pair(i - p + 1, 
 						hi - (q - j + 1) - 1);
 			}
 		}
 	}
-	
-	public static void main(String[] args)
-	{
-		String s = "ZSAJFUBAKGLH";
-		Comparable<Character>[] a = new Character[s.length()];
-		for (int i = 0; i < s.length(); i++)
-			a[i] = s.charAt(i);
-		
-		sort(a);
-		for (int i = 0; i < a.length; i++)
-			System.out.print(a[i] + " ");
-	}
-
 	
 	public class Pair {
 		int i, j;

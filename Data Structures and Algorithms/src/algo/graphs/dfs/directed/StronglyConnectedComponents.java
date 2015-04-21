@@ -1,5 +1,8 @@
 package algo.graphs.dfs.directed;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import ds.graphs.Digraph;
 import ds.graphs.Graph;
 import edu.princeton.cs.introcs.In;
@@ -20,7 +23,6 @@ public class StronglyConnectedComponents
 		id = new int[G.V()];
 
 		OrderDirectedDFS order = new OrderDirectedDFS(G);
-		System.out.println(order.postOrder());
 		for (int v : order.reversePostOrder())
 			if (!marked[v])
 			{
@@ -49,6 +51,14 @@ public class StronglyConnectedComponents
 		return id[v];
 	}
 
+	public int count()
+	{
+		Set<Integer> components = new HashSet<>();
+		for (int v = 0; v < id.length; v++)
+			components.add(id[v]);
+		return components.size();
+	}
+	
 	/**
 	 * @param args
 	 */

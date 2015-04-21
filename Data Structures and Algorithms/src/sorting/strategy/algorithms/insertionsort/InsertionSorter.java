@@ -1,8 +1,5 @@
-package sorting.insertion;
-import java.lang.Comparable;
-import java.util.Random;
-
-import sorting.common.SortHelper;
+package sorting.strategy.algorithms.insertionsort;
+import sorting.Sorter;
 
 /*
  * 2.1.24 Insertion sort with sentinel. Develop an implementation of
@@ -18,23 +15,22 @@ import sorting.common.SortHelper;
  * evaluate the effectiveness of doing so.
  */
 
-@SuppressWarnings("rawtypes")
-public class InsertionSortOptimized
+public class InsertionSorter<T extends Comparable<T>> extends Sorter<T>
 {
 
-	public static void sort(Comparable[] a, int lo, int hi)
+	public void sort(T[] a, int lo, int hi)
 	{
 		if (hi <= lo)
 			return;
 	// Optimisation 1 : Sentinel to prevent array out of bounds checking
-		SortHelper.exch(a, SortHelper.min(a, lo, hi), lo);
+		exch(a, min(a, lo, hi), lo);
 		
 		// Sort a[] into increasing order.
 		for (int i = lo + 2; i <= hi; i++)
 		{ // Insert a[i] among a[i-1], a[i-2], a[i-3]... ..
 			int j = i;
-			Comparable t = a[i];
-			while (SortHelper.less(t, a[j - 1]))
+			T t = a[i];
+			while (less(t, a[j - 1]))
 			{// Optimisation 2: Half exchanges result in half the number of memory accesses
 				a[j] = a[j - 1];
 				j--;
@@ -44,27 +40,9 @@ public class InsertionSortOptimized
 
 	}
 	
-	public static void sort(Comparable[] a)
+	@Override
+	public void sort(T[] a)
 	{
 		sort(a, 0, a.length - 1);
-	}
-	
-	public static void main(String s[])
-	{
-		Random r = new Random();
-		int n = 100000;
-		Integer a[] = new Integer[n];
-		for(int i = 0; i < n; i++)
-			a[i] = Math.abs(r.nextInt());
-		
-		System.out.println("Starting now");
-		long startTime = System.currentTimeMillis();
-		sort(a);
-		long stopTime = System.currentTimeMillis();
-	    System.out.println((float)(stopTime - startTime)/ 1000);
-		
-	    //for (int num : a)
-			//System.out.print(num + " ");
-		
 	}
 }

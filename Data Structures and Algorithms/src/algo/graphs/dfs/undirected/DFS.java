@@ -34,7 +34,10 @@ public class DFS
 		// also serve as the id to use for all vertices of that component
 		for (int v = 0; v < G.V(); v++)
 			if (!marked[v])
+			{
 				dfs(G, v);
+				postEachSourceDFS(G, v);
+			}
 	}
 
 	/**
@@ -49,6 +52,7 @@ public class DFS
 	DFS(Graph G, int s)
 	{
 		marked = new boolean[G.V()];
+		sourceDFSInitialize(G, s);
 		dfs(G, s);
 	}
 
@@ -58,12 +62,29 @@ public class DFS
 	 * @param G Adjacency-list representation of the graph
 	 * @param v Origin vertex where DFS starts
 	 */
-	private void dfs(Graph G, int v)
+	public void dfs(Graph G, int v)
 	{
 		marked[v] = true;
-
+		preAnyAdjacentVerticesVisit(G, v);
+		
 		for (int w : G.adj(v))
 			if (!marked[w])
+			{
+				preAdjacentVertexVisit(v, w);
 				dfs(G, w);
+				postAdjacentVertexVisit(v, w);	
+			}
 	}
+	
+	// Template method pattern
+	
+	public void allDFSInitialize(Graph G){}
+	public void postEachSourceDFS(Graph G, int source){}
+	
+	public void sourceDFSInitialize(Graph G, int source) {}
+	public void preAnyAdjacentVerticesVisit(Graph G, int source){}
+	public void preAdjacentVertexVisit(int source, int adj){}
+	public void postAdjacentVertexVisit(int source, int adj){}
+	
+	
 }

@@ -1,9 +1,9 @@
 package sorting.mergesort;
 
 import sorting.common.SortHelper;
-// TO do - which insertion sort to use
-@SuppressWarnings("rawtypes")
-public class MergeSortIndirect
+
+
+public class MergeSortIndirect<T extends Comparable<T>>
 {
 	/*
 	 * 2.2.20 Indirect sort. Develop and implement a version of mergesort that
@@ -12,7 +12,7 @@ public class MergeSortIndirect
 	 */
 
 	// Merge a[lo..mid] with a[mid+1..hi].
-	private static void mergeIndirect(Comparable[] a, int[] perm, int[] aux,
+	private void mergeIndirect(T[] a, int[] perm, int[] aux,
 			int lo, int mid, int hi)
 	{
 		// i and j is used to point to the currently processing element in the
@@ -35,7 +35,7 @@ public class MergeSortIndirect
 				perm[k] = aux[i++];
 	}
 
-	public static int[] sort(Comparable[] a)
+	public int[] sort(T[] a)
 	{
 		// Allocate space just once. Non-static aux used
 		int[] aux = new int[a.length];
@@ -46,7 +46,7 @@ public class MergeSortIndirect
 		return perm;
 	}
 
-	private static void indirectSort(Comparable[] a, int[] perm, int[] aux,
+	private void indirectSort(T[] a, int[] perm, int[] aux,
 			int lo, int hi)
 	{ // Sort perm[lo..hi].
 		if (hi <= lo)

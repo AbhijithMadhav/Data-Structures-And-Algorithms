@@ -3,6 +3,13 @@
  */
 package algo.paradigms.dp.coinChange;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.StringTokenizer;
+
 public class CoinChange
 {
 	private int totalAmount;
@@ -14,7 +21,7 @@ public class CoinChange
 	private int n[]; // number of coins.
 	private int coin[]; // last coin used        
 
-	public CoinChange(int totalAmount, int denomination[])
+	public CoinChange(int totalAmount, Integer denomination[])
 	{
 		this.totalAmount = totalAmount;
 		coin = new int[totalAmount + 1];
@@ -49,12 +56,23 @@ public class CoinChange
 		return s;
 	}
 
-	public static void main(String s[])
+	public static void main(String s[]) throws IOException
 	{
 		int denomination[] = { 1, 7, 10 };
-		CoinChange cc = new CoinChange(14, denomination);
-		System.out.println(cc);
+		//CoinChange cc = new CoinChange(14, denomination);
+		//System.out.println(cc);
 		//for (int i = 0; i <= cc.totalAmount; i++)
 			//System.out.print(cc.n[i] + " ");
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer tokenizer = new StringTokenizer(br.readLine(), ",");
+		ArrayList<Integer> arrIntegers = new ArrayList<>();
+		for(;tokenizer.hasMoreTokens();)
+		{
+			arrIntegers.add(Integer.parseInt(tokenizer.nextToken().trim()));
+		}
+		int n = Integer.parseInt(br.readLine());
+		CoinChange cc = new CoinChange(n, Arrays.copyOf(arrIntegers.toArray(), arrIntegers.size(), Integer[].class));
+		System.out.println(cc.getNCoins());
 	}
 }

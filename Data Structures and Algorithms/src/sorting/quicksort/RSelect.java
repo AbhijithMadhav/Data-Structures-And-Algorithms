@@ -1,15 +1,14 @@
 package sorting.quicksort;
 import java.util.Random;
 
-/**
- * 
- */
+import sorting.strategy.algorithms.quicksort.QuickSorter;
+
 
 /**
  * @author kempa
  * 
  */
-public class RSelect
+public class RSelect<T extends Comparable<T>>
 {
 	/**
 	 * Finds the element with the given rank in the given unordered array in
@@ -21,11 +20,11 @@ public class RSelect
 	 * @param j Index of rightmost element of a
 	 * @return The element with rank r
 	 */
-	static Comparable<?> select(Comparable<?> a[], int r, int i, int j)
+	T select(T a[], int r, int i, int j)
 	{
 		int n = a.length;
 		int pIndex = findPivot(a, i, j);
-		int k = QuickSort.partition(a, i, j, pIndex);
+		int k = new QuickSorter<T>().partition(a, i, j, pIndex);
 
 		int rPivot = n - k + 1;
 		if (r == rPivot)
@@ -34,7 +33,7 @@ public class RSelect
 			return select(a, r, k + 1, j);
 		else if (r > rPivot)
 			return select(a, r - (n - k + 1), i, k - 1);
-		return -1;
+		return null;
 
 	}
 
@@ -51,7 +50,7 @@ public class RSelect
 	 * @param j Index of rightmost element of a
 	 * @return Index of a "good" pivot
 	 */
-	static int findPivot(Comparable<?> a[], int i, int j)
+	int findPivot(Comparable<?> a[], int i, int j)
 	{
 		Random r = new Random();
 		int k =(i + (Math.abs(r.nextInt()) % (j - i))); 
@@ -63,10 +62,11 @@ public class RSelect
 	{
 		Integer a[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
+		RSelect<Integer> rselect = new RSelect<>();
 		for (int rank = 1; rank < 9; rank++)
 		{
 			System.out.println("Element with rank " + rank + " "
-					+ select(a, 1, 0, a.length - 1));
+					+ rselect.select(a, 1, 0, a.length - 1));
 		}
 	}
 }

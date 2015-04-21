@@ -1,4 +1,9 @@
 package algo.paradigms.dc;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 /*
  * Find the sub array whose sum of elements is the greatest from a given array
  */
@@ -54,6 +59,8 @@ public class MaxSubArray
 	private Triple findMaxCrossingSubArray(int lo, int hi)
 	{
 		int mid = (lo + hi) / 2;
+		
+		// Assume max sum includes the entire array
 		int left = lo;
 		int right = hi;
 
@@ -85,9 +92,9 @@ public class MaxSubArray
 	public String toString()
 	{
 		String s = new String();
-		for (int i = t.getLo(); i < t.getHi(); i++)
-			s += a[i] + " ";
-		s += a[t.getHi()] + "\n";
+		//for (int i = t.getLo(); i < t.getHi(); i++)
+			//s += a[i] + " ";
+		//s += a[t.getHi()] + "\n";
 		s += "sum = " + t.getSum();
 		
 		return s;
@@ -95,13 +102,27 @@ public class MaxSubArray
 	
 	/**
 	 * @param args
+	 * @throws IOException 
+	 * @throws NumberFormatException 
 	 */
-	public static void main(String[] args)
+	public static void main(String[] args) throws NumberFormatException, IOException
 	{
-		int a[] = {13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7};
+		//int a[] = {13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7};
 		
-		MaxSubArray max = new MaxSubArray(a);
-		System.out.println(max);
+		//MaxSubArray max = new MaxSubArray(a);
+		//System.out.println(max);
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int t = Integer.parseInt(br.readLine());
+		for (int i = 0; i < t; i++) {
+			int n = Integer.parseInt(br.readLine());
+			int a[] = new int[n];
+			StringTokenizer tokenizer = new StringTokenizer(br.readLine());
+			for (int k = 0; tokenizer.hasMoreTokens(); k++) {
+				a[k] = Integer.parseInt(tokenizer.nextToken());
+			}
+			System.out.println(new MaxSubArray(a));
+		}
 	}
 }
 

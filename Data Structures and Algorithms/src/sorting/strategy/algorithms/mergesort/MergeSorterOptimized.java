@@ -1,10 +1,9 @@
-package sorting.mergesort;
+package sorting.strategy.algorithms.mergesort;
 
-import sorting.common.SortHelper;
-import sorting.insertion.InsertionSortOptimized;
-// TO do - which insertion sort to use
-@SuppressWarnings("rawtypes")
-public class MergeSortOptimized
+import sorting.Sorter;
+import sorting.strategy.algorithms.insertionsort.InsertionSorter;
+
+public class MergeSorterOptimized<T extends Comparable<T>> extends Sorter<T>
 {
 	/*
 	 * Optimized sort
@@ -25,7 +24,7 @@ public class MergeSortOptimized
 	// Note that the definition of merge here is different from the others
 	// There given a[] and aux[], you used to copy a[] to aux[] and then merge
 	// back to a[]. Here given src[] and dst[] you just merge src[] to dst[]
-	private static void mergeWithoutCopy(Comparable[] src, Comparable[] dst,
+	private void mergeWithoutCopy(T[] src, T[] dst,
 			int lo, int mid, int hi)
 	{// Though 'mid' can be calculated in the body, it is sent as a parameter as
      //  one may always not want to merge 2 equal subarrays. Look at bottem up
@@ -40,7 +39,7 @@ public class MergeSortOptimized
 					dst[k] = src[j++];
 				else if (j > hi) // 2nd half exhausted
 					dst[k] = src[i++];
-				else if (SortHelper.less(src[j], src[i])) // Only this instruction counts 
+				else if (less(src[j], src[i])) // Only this instruction counts 
                                                //  for the comparisons accounted
                                                //   in the analysis
 					dst[k] = src[j++];
@@ -48,13 +47,14 @@ public class MergeSortOptimized
 					dst[k] = src[i++];
 	}
 
-	private static void sort(Comparable[] a, Comparable[] aux, int lo,
+	private void sort(T[] a, T[] aux, int lo,
 			int hi)
 	{ // Sort a[lo..hi].
 		if (hi - lo + 1 <= CUTOFF)
 		{ // Improvement - 1
 			// sort using insertion sort if subarray is small
-			InsertionSortOptimized.sort(a, lo, hi);
+			Sorter<T> sorter = new InsertionSorter<>();
+			sorter.sort(a, lo, hi);
 			return;
 		}
 
@@ -65,7 +65,7 @@ public class MergeSortOptimized
 
 		// Improvement - 2
 		// No need for merge if array is already sorted
-		if (SortHelper.lessOrEqual(aux[mid], aux[mid + 1]))
+		if (lessOrEqual(aux[mid], aux[mid + 1]))
 			System.arraycopy(aux, lo, a, lo, hi - lo + 1);
 		else
 			// merge aux[lo..mid] and aux[mid+1..hi] to a[lo..mid]
@@ -73,10 +73,18 @@ public class MergeSortOptimized
 			mergeWithoutCopy(aux, a, lo, mid, hi);
 	}
 
-	public static void optimizedSort(Comparable[] a)
-	{
+	@Override
+	public void sort(T[] a, int lo, int hi) {
 		// faster copy instead of using a 'for' loop
-		Comparable[] aux = a.clone();
+		T[] aux = a.clone();
+		sort(a, aux, lo, hi);
+	}
+	
+	// overridding to allocate auxillary array
+	@Override
+	public void sort(T[] a) {
+		// faster copy instead of using a 'for' loop
+		T[] aux = a.clone();
 		sort(a, aux, 0, a.length - 1);
 	}
 }

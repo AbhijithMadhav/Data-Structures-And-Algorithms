@@ -1,10 +1,8 @@
-package sorting.mergesort;
+package sorting.strategy.algorithms.mergesort;
 
-import sorting.common.SortHelper;
+import sorting.Sorter;
 
-// TO do - which insertion sort to use
-@SuppressWarnings("rawtypes")
-public class MergeSortFasterUnstable
+public class MergeSorterFastUnstable<T extends Comparable<T>> extends Sorter<T>
 {
 	/*
 	 * 2.2.10 Faster merge. Implement a version of merge() that copies the
@@ -14,7 +12,7 @@ public class MergeSortFasterUnstable
 	 * sort is not stable (see page 341).
 	 */
 	// Merge a[lo..mid] with a[mid+1..hi].
-	private static void mergeFasterNonStable(Comparable[] a, Comparable[] aux,
+	private void mergeFasterNonStable(T[] a, T[] aux,
 			int lo, int mid, int hi)
 	{
 
@@ -36,21 +34,22 @@ public class MergeSortFasterUnstable
 		// exhausted, their respective pointers fall into the other half and all
 		// is equally well
 		for (int k = lo; k <= hi; k++)
-			if (SortHelper.less(aux[j], aux[i]))
+			if (less(aux[j], aux[i]))
 				a[k] = aux[j--];
 			else
 				a[k] = aux[i++];
 	}
 
-	public static void sort(Comparable[] a)
+	public void sort(T[] a)
 	{
 		// Non-static merge used
 		// Allocate space just once.
-		Comparable[] aux = new Comparable[a.length];
+		@SuppressWarnings("unchecked")
+		T[] aux = (T[]) new Comparable[a.length];
 		sortFasterNonStable(a, aux, 0, a.length - 1);
 	}
 
-	private static void sortFasterNonStable(Comparable[] a, Comparable[] aux,
+	private void sortFasterNonStable(T[] a, T[] aux,
 			int lo, int hi)
 	{ // Sort a[lo..hi].
 		if (hi <= lo)
@@ -60,5 +59,13 @@ public class MergeSortFasterUnstable
 		sortFasterNonStable(a, aux, mid + 1, hi); // Sort right half.
 		mergeFasterNonStable(a, aux, lo, mid, hi); // Merge results (code on
 													// page 271).
+	}
+
+	@Override
+	public void sort(T[] a, int lo, int hi) {
+		@SuppressWarnings("unchecked")
+		T[] aux = (T[]) new Comparable[a.length];
+		sortFasterNonStable(a, aux, lo, hi);
+		
 	}
 }
