@@ -14,6 +14,7 @@ import edu.princeton.cs.introcs.In;
 @SuppressWarnings("rawtypes")
 public class Driver
 {
+   
 	private static int N = 10000;
 	private static String inputType = "Random";
 
